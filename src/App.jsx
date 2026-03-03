@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
+import OurStory from './pages/OurStory'
 
 function ScrollToHash() {
   const location = useLocation()
@@ -26,6 +27,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/our-story" element={<OurStory />} />
         </Routes>
       </main>
       <Footer />

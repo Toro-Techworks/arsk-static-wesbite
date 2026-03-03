@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
 const quickLinks = [
-  { label: 'ABOUT ARSK', href: '/#our-story' },
+  { label: 'ABOUT ARSK', href: '/our-story' },
   { label: 'PRODUCTS', href: '/products' },
-  { label: 'CERTIFICATIONS', href: '/#our-story' },
+  { label: 'CERTIFICATIONS', href: '/our-story' },
   { label: 'SERVICES', href: '/#what-we-do' },
 ]
 

@@ -4,6 +4,7 @@ import LuxuryProductSection from './LuxuryProductSection'
 export default function EditorialProductsSection() {
   return (
     <section
+      id="collection"
       className="w-full py-[120px]"
       style={{ backgroundColor: '#eae3db' }}
       aria-label="Product showcase"

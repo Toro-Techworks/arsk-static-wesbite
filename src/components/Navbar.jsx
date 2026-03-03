@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 const navLinks = [
   { label: 'HOME', to: '/' },
   { label: 'OUR PRODUCTS', to: '/products' },
-  { label: 'OUR STORY', to: '/#our-story' },
+  { label: 'OUR STORY', to: '/our-story' },
   { label: 'CONTACT', to: '/#contact' },
 ]
 
@@ -16,6 +16,7 @@ export default function Navbar() {
 
   useEffect(() => {
     if (location.pathname === '/products') setActiveLink('OUR PRODUCTS')
+    else if (location.pathname === '/our-story') setActiveLink('OUR STORY')
     else if (location.pathname === '/') setActiveLink('HOME')
   }, [location.pathname])
 
