@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
+  body {
+    @apply font-sans font-light overflow-x-hidden antialiased;
+  }
+}
+
+@layer utilities {
+  .bg-attachment-fixed-desktop {
+    background-attachment: scroll;
+  }
+  @media (min-width: 1024px) {
+    .bg-attachment-fixed-desktop {
+      background-attachment: fixed;
+    }
+  }
+}
+@keyframes products-carousel {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-products-carousel {
+  animation: products-carousel 45s linear infinite;
+}
+
