@@ -17,6 +17,7 @@ export default {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
+        rounded: ['Arial Rounded MT Bold', 'Arial Rounded', 'sans-serif'],
       },
       letterSpacing: {
         elegant: '0.02em',

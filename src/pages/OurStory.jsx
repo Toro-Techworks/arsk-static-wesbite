@@ -58,7 +58,7 @@ function ProcessFlowSection() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* Subtle overlay so cards and title stay readable */}
+      {/* Overlay for readability (background image stays full) */}
       <div className="absolute inset-0 bg-[#F4EFE8]/75" aria-hidden />
 
       <h2 className="relative z-10 text-center font-serif text-3xl font-medium tracking-[0.08em] text-[#4A3F36] md:text-4xl lg:text-[2.5rem]">
@@ -66,34 +66,57 @@ function ProcessFlowSection() {
       </h2>
 
       <div className="relative z-10 mx-auto mt-14 max-w-6xl px-4 md:mt-20 md:px-6 lg:px-8">
-        {/* Mobile: single column stacked */}
         <div className="flex flex-col gap-8 md:gap-0">
           {PROCESS_STAGES.map((stage, i) => {
             const isLeft = i % 2 === 0
             return (
               <div key={stage.step} className="flex flex-col">
-                {/* Connector: subtle arrow between rows (hidden on mobile) */}
                 {i > 0 && (
                   <div className="hidden md:flex md:justify-center md:py-3" aria-hidden>
                     <span className="text-[#6E625A]/40 text-lg">→</span>
                   </div>
                 )}
+                {/* Row: two columns on desktop — image on one side, content fills the other column on hover */}
                 <div
                   ref={(el) => { cardRefs.current[i] = el }}
                   data-index={i}
-                  className={`w-full md:max-w-[460px] lg:max-w-[520px] ${isLeft ? 'md:mr-auto md:pr-4 lg:pr-8' : 'md:ml-auto md:mt-12 md:pl-4 lg:mt-14 lg:pl-8'}`}
+                  className={`group/card grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 md:items-start ${isLeft ? 'md:mr-0' : 'md:mt-12'} ${isLeft ? '' : 'lg:gap-8'}`}
                   style={{
                     opacity: isVisible(i) ? 1 : 0,
                     transform: isVisible(i) ? 'translateY(0) translateX(0)' : `translateY(40px) translateX(${isLeft ? -28 : 28}px)`,
                     transition: `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s`,
                   }}
                 >
-                  <article className="overflow-hidden rounded-2xl bg-white p-8 shadow-[0_4px_24px_rgba(74,63,54,0.06)] md:p-[32px]">
-                    <img src={stage.image} alt={stage.title} className="aspect-[4/3] w-full object-cover object-center rounded-xl" />
-                    <p className="mt-5 text-xs font-medium tracking-[0.12em] text-[#6E625A]">{stage.step}</p>
-                    <h3 className="mt-1 font-sans text-lg font-bold uppercase tracking-wide text-[#4A3F36]">{stage.title}</h3>
-                    <p className="mt-3 text-[15px] leading-relaxed text-[#6E625A]" style={{ lineHeight: 1.7 }}>{stage.description}</p>
-                  </article>
+                  {/* Column 1: left card = image; right card = content panel (other column) */}
+                  {isLeft ? (
+                    <>
+                      <div className="overflow-hidden rounded-2xl shadow-[0_4px_24px_rgba(74,63,54,0.08)]">
+                        <img src={stage.image} alt={stage.title} className="aspect-[4/3] w-full object-cover object-center" />
+                      </div>
+                      <div
+                        className="flex min-h-[180px] flex-col justify-center rounded-2xl border border-white/30 bg-white/40 px-6 py-5 shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-xl transition-all duration-500 ease-out md:opacity-0 md:translate-x-[120%] md:group-hover/card:opacity-100 md:group-hover/card:translate-x-0"
+                        style={{ pointerEvents: 'none' }}
+                      >
+                        <p className="text-xs font-medium tracking-[0.12em] text-[#6E625A]">{stage.step}</p>
+                        <h3 className="mt-1 font-sans text-lg font-bold uppercase tracking-wide text-[#4A3F36]">{stage.title}</h3>
+                        <p className="mt-3 text-[14px] leading-relaxed text-[#6E625A]" style={{ lineHeight: 1.7 }}>{stage.description}</p>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div
+                        className="flex min-h-[180px] flex-col justify-center rounded-2xl bg-white/40 px-6 py-5 shadow-[0_8px_32px_rgba(74,63,54,0.1)] backdrop-blur-sm transition-all duration-500 ease-out md:opacity-0 md:-translate-x-[120%] md:group-hover/card:opacity-100 md:group-hover/card:translate-x-0 order-2 md:order-1"
+                        style={{ pointerEvents: 'none' }}
+                      >
+                        <p className="text-xs font-medium tracking-[0.12em] text-[#6E625A]">{stage.step}</p>
+                        <h3 className="mt-1 font-sans text-lg font-bold uppercase tracking-wide text-[#4A3F36]">{stage.title}</h3>
+                        <p className="mt-3 text-[14px] leading-relaxed text-[#6E625A]" style={{ lineHeight: 1.7 }}>{stage.description}</p>
+                      </div>
+                      <div className="overflow-hidden rounded-2xl shadow-[0_4px_24px_rgba(74,63,54,0.08)] order-1 md:order-2">
+                        <img src={stage.image} alt={stage.title} className="aspect-[4/3] w-full object-cover object-center" />
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             )

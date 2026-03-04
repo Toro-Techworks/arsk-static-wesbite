@@ -13,6 +13,8 @@ function ScrollToHash() {
     if (id) {
       const el = document.getElementById(id)
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }, [location.pathname, location.hash])
   return null

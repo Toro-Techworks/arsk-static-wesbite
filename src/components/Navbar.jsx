@@ -44,9 +44,14 @@ export default function Navbar() {
         <Link
           to="/"
           onClick={closeMobileMenu}
-          className="font-sans text-lg font-medium text-primary tracking-elegant transition-colors duration-300 hover:text-primary sm:text-xl"
+          className="flex items-center transition-opacity duration-300 hover:opacity-90"
+          aria-label="ARSK Exports - Home"
         >
-          ARSK Exports
+          <img
+            src="/arsk-logo.png"
+            alt="ARSK Exports"
+            className="h-80 w-auto sm:h-82"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -55,7 +60,13 @@ export default function Navbar() {
             <Link
               key={link.label}
               to={link.to}
-              onClick={() => { setActiveLink(link.label); closeMobileMenu(); }}
+              onClick={() => {
+              setActiveLink(link.label)
+              closeMobileMenu()
+              if (link.label === 'HOME' && location.pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
+            }}
               className={`relative font-sans text-xs font-light uppercase tracking-elegant-wide transition-all duration-300 hover:text-primary xl:text-sm ${
                 activeLink === link.label
                   ? 'text-primary underline decoration-primary underline-offset-4'
@@ -101,6 +112,9 @@ export default function Navbar() {
               onClick={() => {
                 setActiveLink(link.label)
                 closeMobileMenu()
+                if (link.label === 'HOME' && location.pathname === '/') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }
               }}
               className={`rounded-md px-4 py-3 font-sans text-sm font-light uppercase tracking-wide transition-colors ${
                 activeLink === link.label ? 'bg-primary/10 text-primary' : 'text-text-charcoal hover:bg-black/5'

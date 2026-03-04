@@ -23,18 +23,21 @@ export default function Hero() {
         <FadeInSection className="max-w-xl space-y-4 sm:space-y-6">
 
           {/* Hero Title – Extra Light */}
-          <h1 className="font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-[#312E81] sm:text-4xl lg:text-6xl">
-            ARSK Exports
+          <h1
+            className="text-3xl leading-tight tracking-[-0.03em] text-[#312E81] sm:text-4xl lg:text-6xl"
+            style={{ fontFamily: '"Arial Rounded MT Semi-Bold", "Arial Rounded MT", Arial, sans-serif' }}
+          >
+            ARSK EXPORTS
           </h1>
 
           {/* Subheading */}
           <p className="font-sans text-xl font-light tracking-[-0.01em] text-primary sm:text-2xl">
-            Weaving Excellence Since 1995
+            Weaving Excellence Since 1984
           </p>
 
           {/* Description */}
           <p className="text-base leading-relaxed text-text-muted sm:text-lg">
-            A trusted textile manufacturer with 30+ years of expertise in weaving
+            A trusted textile manufacturer with 40+ years of expertise in weaving
             high-quality fabrics for global markets.
           </p>
 

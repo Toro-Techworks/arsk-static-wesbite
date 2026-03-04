@@ -50,7 +50,7 @@ export default function Footer() {
   return (
     <footer className="w-full">
       {/* Main Footer */}
-      <section className="w-full bg-[#1E1048] text-white" aria-label="Footer links and contact">
+      <section className="w-full bg-[#1F2A44] text-white" aria-label="Footer links and contact">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
             {/* Column 1 – Quick Links */}
