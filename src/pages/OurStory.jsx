@@ -8,6 +8,7 @@ import imgNeedleMetalDetector from '../assets/Infrastructure/Needle Metal Detect
 import imgSafetyLockers from '../assets/Infrastructure/Safety and Lockers.jpg'
 import imgFinalPackaging from '../assets/Infrastructure/Final Packaging Line.jpg'
 import ourStoryBg from '../assets/Our-Story_bg.jpg'
+import OurMissionSection from '../components/OurMissionSection'
 
 const BRAND_STORY = `We believe in the art of exceptional craftsmanship. From our roots in Karur to the world, ARSK Exports has dedicated decades to creating textiles that speak of quality, tradition, and timeless elegance. Every thread tells a story of passion and precision.`
 
@@ -211,6 +212,7 @@ export default function OurStory() {
         </div>
       </div>
       <ProcessFlowSection />
+      <OurMissionSection />
     </div>
   )
 }

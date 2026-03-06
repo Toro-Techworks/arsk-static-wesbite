@@ -2,7 +2,7 @@ import Hero from '../components/Hero'
 import WhoWeAre from '../components/WhoWeAre'
 import StatsCertifications from '../components/StatsCertifications'
 import ProductCarousel from '../components/ProductCarousel'
-import Contact from '../components/Contact'
+import GlobalShippingSolutions from '../components/GlobalShippingSolutions'
 
 export default function HomePage() {
   return (
@@ -22,7 +22,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <Contact />
+      <GlobalShippingSolutions />
     </>
   )
 }
