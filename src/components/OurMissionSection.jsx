@@ -48,12 +48,12 @@ const BLOCKS = [
 function TextTile({ title, description, bgColor, className = '' }) {
   return (
     <div
-      className={`flex h-full min-h-[280px] flex-col justify-center px-6 py-8 sm:min-h-[320px] sm:px-8 sm:py-10 ${bgColor} text-white shadow-[0_8px_32px_rgba(0,0,0,0.12)] ${className}`}
+      className={`flex h-full min-h-[260px] flex-col justify-center px-4 py-6 text-center sm:min-h-[320px] sm:px-8 sm:py-10 sm:text-left ${bgColor} text-white shadow-[0_8px_32px_rgba(0,0,0,0.12)] ${className}`}
     >
-      <h3 className="font-serif text-2xl font-medium uppercase tracking-[0.12em] sm:text-3xl">
+      <h3 className="font-serif text-xl font-medium uppercase tracking-[0.12em] sm:text-2xl lg:text-3xl">
         {title}
       </h3>
-      <p className="mt-4 max-w-md text-left text-sm leading-relaxed opacity-95 sm:text-base">
+      <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed opacity-95 sm:mx-0 sm:mt-4 sm:text-base">
         {description}
       </p>
     </div>
@@ -63,12 +63,12 @@ function TextTile({ title, description, bgColor, className = '' }) {
 function ImageTile({ src, alt, className = '' }) {
   return (
     <div
-      className={`flex h-full min-h-[280px] items-center justify-center bg-[#E8E4DF] p-6 shadow-[0_8px_32px_rgba(0,0,0,0.08)] sm:min-h-[320px] ${className}`}
+      className={`flex h-full min-h-[220px] items-center justify-center bg-[#E8E4DF] p-4 shadow-[0_8px_32px_rgba(0,0,0,0.08)] sm:min-h-[320px] sm:p-6 ${className}`}
     >
       <img
         src={src}
         alt={alt}
-        className="h-full max-h-[240px] w-full max-w-[320px] object-contain object-center drop-shadow-lg"
+        className="h-full max-h-[200px] w-full max-w-full object-contain object-center drop-shadow-lg sm:max-h-[240px] sm:max-w-[320px]"
       />
     </div>
   )
@@ -81,21 +81,27 @@ export default function OurMissionSection() {
       aria-label="Our mission, vision, and values"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* 2 columns × 3 rows, equal-height square tiles on desktop */}
-        <div className="grid grid-cols-1 grid-rows-[repeat(6,auto)] gap-0 sm:grid-cols-2 sm:grid-rows-3 sm:auto-rows-1fr">
-          {BLOCKS.map((block, index) => (
-            <div key={index} className="min-h-[280px] sm:min-h-0">
-              {block.type === 'text' ? (
-                <TextTile
-                  title={block.title}
-                  description={block.description}
-                  bgColor={block.bgColor}
-                />
-              ) : (
-                <ImageTile src={block.src} alt={block.alt} />
-              )}
-            </div>
-          ))}
+        {/* Mobile: single column, alternating order. Desktop: 2×3 checkerboard */}
+        <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:grid-rows-3 sm:auto-rows-1fr">
+          {BLOCKS.map((block, index) => {
+            const mobileOrderClass = ['order-1', 'order-2', 'order-4', 'order-3', 'order-5', 'order-6'][index]
+            return (
+              <div
+                key={index}
+                className={`min-h-0 w-full ${mobileOrderClass} sm:order-none`}
+              >
+                {block.type === 'text' ? (
+                  <TextTile
+                    title={block.title}
+                    description={block.description}
+                    bgColor={block.bgColor}
+                  />
+                ) : (
+                  <ImageTile src={block.src} alt={block.alt} />
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

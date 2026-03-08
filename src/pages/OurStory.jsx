@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import ourStoryImage from '../assets/our-story.jpg'
 import imgOfficeProduction from '../assets/Infrastructure/Office & Production House.jpg'
 import imgWeavingFactory from '../assets/Infrastructure/Weaving Factory.jpg'
@@ -166,21 +165,6 @@ export default function OurStory() {
           >
             {BRAND_STORY}
           </p>
-
-          <div
-            style={{
-              opacity: mounted ? 1 : 0,
-              transform: mounted ? 'translateY(0)' : 'translateY(40px)',
-              transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
-            }}
-          >
-            <Link
-              to="/about"
-              className="mt-10 inline-block rounded-[40px] border border-[#4A3F36] px-8 py-3.5 text-sm font-medium tracking-wide text-[#4A3F36] transition-colors duration-300 hover:bg-[#4A3F36] hover:text-white"
-            >
-              Learn More
-            </Link>
-          </div>
 
           <p
             className="mt-16 font-serif text-sm italic tracking-wide text-[#6E625A]"

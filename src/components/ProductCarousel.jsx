@@ -10,7 +10,7 @@ const productEntries = Object.entries(storeImages).map(([path, src]) => {
 
 function ProductCard({ src, name }) {
   return (
-    <article className="group w-[280px] flex-shrink-0 overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl sm:w-[320px]">
+    <article className="group w-[200px] flex-shrink-0 overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl sm:w-[260px] md:w-[320px]">
       <div className="relative aspect-[4/5] overflow-hidden bg-border-subtle">
         <img
           src={src}
@@ -31,9 +31,9 @@ export default function ProductCarousel() {
   if (productEntries.length === 0) return null
 
   return (
-    <div className="-mx-6 px-2 sm:-mx-8">
+    <div className="w-full overflow-hidden">
       <div className="group overflow-hidden">
-        <div className="flex w-max animate-products-carousel gap-6 sm:gap-8 [animation-play-state:running] group-hover:[animation-play-state:paused]">
+        <div className="flex w-max animate-products-carousel gap-4 sm:gap-6 md:gap-8 [animation-play-state:running] group-hover:[animation-play-state:paused]">
           {[...productEntries, ...productEntries].map(({ src, name }, index) => (
             <ProductCard key={`${name}-${index}`} src={src} name={name} />
           ))}

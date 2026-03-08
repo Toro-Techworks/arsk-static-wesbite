@@ -45,7 +45,7 @@ export default function Hero() {
           <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:gap-6 sm:pt-4">
             
             <a
-              href="#products"
+              href="/products"
               className="group relative inline-flex justify-center overflow-hidden rounded-md border-2 border-primary px-5 py-3 text-sm font-light text-primary transition-colors duration-300 sm:px-6"
             >
               <span
@@ -58,7 +58,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="#contact"
+              href="/contact"
               className="group relative inline-flex justify-center overflow-hidden rounded-md border-2 border-primary px-5 py-3 text-sm font-light text-primary transition-colors duration-300 sm:px-6"
             >
               <span

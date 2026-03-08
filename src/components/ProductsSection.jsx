@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import FadeInSection from './FadeInSection'
+import ProductsGrid from './ProductsGrid'
 
 const productImages = import.meta.glob(
   '../assets/Product images/**/*.{png,jpg,jpeg,avif}',
@@ -79,34 +80,8 @@ export default function ProductsSection() {
           ))}
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-[40px]">
-          {filteredProducts.map((product) => (
-            <FadeInSection key={product.id}>
-              <article className="group">
-                <div className="aspect-square overflow-hidden rounded-[12px]">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="h-full w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="mt-4">
-                  <p
-                    className="font-sans text-[14px] uppercase tracking-[1px]"
-                    style={{ color: '#3E3A36' }}
-                  >
-                    {product.name}
-                  </p>
-                  <button
-                    type="button"
-                    className="mt-4 border border-[#3E3A36] bg-transparent px-5 py-2.5 font-sans text-[12px] uppercase tracking-[1px] text-[#3E3A36] transition-colors duration-300 ease-out hover:bg-[#3E3A36] hover:text-white"
-                  >
-                    View Details
-                  </button>
-                </div>
-              </article>
-            </FadeInSection>
-          ))}
+        <div className="mt-10 sm:mt-16">
+          <ProductsGrid products={filteredProducts} />
         </div>
       </div>
     </section>

@@ -1,10 +1,14 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Modal from './Modal'
+import TermsContent from './TermsContent'
+import PrivacyContent from './PrivacyContent'
 
 const quickLinks = [
-  { label: 'ABOUT ARSK', href: '/our-story' },
-  { label: 'PRODUCTS', href: '/products' },
-  { label: 'CERTIFICATIONS', href: '/our-story' },
-  { label: 'SERVICES', href: '/#what-we-do' },
+  { label: 'HOME', href: '/' },
+  { label: 'OUR PRODUCTS', href: '/products' },
+  { label: 'OUR STORY', href: '/our-story' },
+  { label: 'CONTACT', href: '/contact' },
 ]
 
 const socialLinks = [
@@ -47,6 +51,8 @@ function EnvelopeIcon({ className }) {
 }
 
 export default function Footer() {
+  const [policyModal, setPolicyModal] = useState(null)
+
   return (
     <footer className="w-full">
       {/* Main Footer */}
@@ -62,11 +68,17 @@ export default function Footer() {
                 {quickLinks.map(({ label, href }) => (
                   <li key={label}>
                     {href.startsWith('http') || href.startsWith('mailto') ? (
-                      <a href={href} className="text-sm tracking-wide transition-colors hover:underline">
+                      <a
+                        href={href}
+                        className="font-sans text-xs font-light uppercase tracking-[0.2em] text-white/90 transition-all duration-300 hover:text-white xl:text-sm"
+                      >
                         {label}
                       </a>
                     ) : (
-                      <Link to={href} className="text-sm tracking-wide transition-colors hover:underline">
+                      <Link
+                        to={href}
+                        className="font-sans text-xs font-light uppercase tracking-[0.2em] text-white/90 transition-all duration-300 hover:text-white xl:text-sm"
+                      >
                         {label}
                       </Link>
                     )}
@@ -130,17 +142,51 @@ export default function Footer() {
             <div className="flex flex-col items-center justify-between gap-4 text-xs opacity-80 md:flex-row">
               <p>© ARSK Exports. All Rights Reserved</p>
               <div className="flex flex-wrap items-center justify-center gap-6">
-                <a href="/terms" className="transition-colors hover:underline">
+                <button
+                  type="button"
+                  onClick={() => setPolicyModal('terms')}
+                  className="cursor-pointer border-0 bg-transparent p-0 text-inherit transition-colors hover:underline"
+                >
                   Terms & Conditions
-                </a>
-                <a href="/privacy" className="transition-colors hover:underline">
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPolicyModal('privacy')}
+                  className="cursor-pointer border-0 bg-transparent p-0 text-inherit transition-colors hover:underline"
+                >
                   Privacy Policy
-                </a>
+                </button>
               </div>
             </div>
+            <p className="mt-4 text-center text-xs opacity-80">
+              © 2026 ARSK Exports. Designed and Developed by{' '}
+              <a
+                href="https://www.torotech.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:underline"
+              >
+                Toro Tech
+              </a>
+            </p>
           </div>
         </div>
       </section>
+
+      <Modal
+        isOpen={policyModal === 'terms'}
+        onClose={() => setPolicyModal(null)}
+        title="Terms & Conditions"
+      >
+        <TermsContent />
+      </Modal>
+      <Modal
+        isOpen={policyModal === 'privacy'}
+        onClose={() => setPolicyModal(null)}
+        title="Privacy Policy"
+      >
+        <PrivacyContent />
+      </Modal>
     </footer>
   )
 }

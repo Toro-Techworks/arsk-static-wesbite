@@ -1,4 +1,5 @@
 import FadeInSection from './FadeInSection'
+import ProductsGrid from './ProductsGrid'
 
 const productImages = import.meta.glob(
   '../assets/Curtains/*.{png,jpg,jpeg,avif}',
@@ -30,35 +31,7 @@ export default function LuxuryProductSection({ hideTitle = false, embed = false 
         </h2>
       )}
 
-      <div className={`grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-[40px] ${hideTitle ? 'mt-0' : ''}`}>
-          {products.map((product) => (
-            <FadeInSection key={product.id}>
-              <article className="group">
-                <div className="aspect-square overflow-hidden rounded-[12px]">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="h-full w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="mt-4">
-                  <p
-                    className="font-sans text-[14px] uppercase tracking-[1px]"
-                    style={{ color: '#3E3A36' }}
-                  >
-                    {product.name}
-                  </p>
-                  <button
-                    type="button"
-                    className="mt-4 border border-[#3E3A36] bg-transparent px-5 py-2.5 font-sans text-[12px] uppercase tracking-[1px] text-[#3E3A36] transition-colors duration-300 ease-out hover:bg-[#3E3A36] hover:text-white"
-                  >
-                    View Details
-                  </button>
-                </div>
-              </article>
-            </FadeInSection>
-          ))}
-        </div>
+      <ProductsGrid products={products} gridClassName={hideTitle ? 'mt-0' : ''} />
 
         {/* Promo split section */}
         <div className="mt-24 grid grid-cols-1 gap-12 lg:mt-32 lg:grid-cols-2 lg:items-center lg:gap-16">

@@ -23,10 +23,6 @@ export default {
         elegant: '0.02em',
         'elegant-wide': '0.05em',
       },
-      animation: {
-        'fade-up': 'fadeUp 0.8s ease-out both',
-        'carousel': 'carousel 40s linear infinite',
-      },
       keyframes: {
         fadeUp: {
           '0%': {
@@ -42,6 +38,20 @@ export default {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        modalBackdrop: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        modalPanel: {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+      },
+      animation: {
+        'fade-up': 'fadeUp 0.8s ease-out both',
+        'carousel': 'carousel 40s linear infinite',
+        'modal-backdrop': 'modalBackdrop 0.2s ease-out forwards',
+        'modal-panel': 'modalPanel 0.3s ease-out forwards',
       },
     },
   },

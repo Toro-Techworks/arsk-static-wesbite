@@ -6,15 +6,17 @@ import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
 import OurStory from './pages/OurStory'
 import ContactPage from './pages/ContactPage'
+import TermsPage from './pages/TermsPage'
+import PrivacyPage from './pages/PrivacyPage'
 
-function ScrollToHash() {
+function ScrollToTopOnNavigate() {
   const location = useLocation()
   useEffect(() => {
     const id = location.hash?.slice(1)
     if (id) {
       const el = document.getElementById(id)
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    } else if (location.pathname === '/') {
+    } else {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }, [location.pathname, location.hash])
@@ -24,7 +26,7 @@ function ScrollToHash() {
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToHash />
+      <ScrollToTopOnNavigate />
       <Navbar />
       <main>
         <Routes>
@@ -32,6 +34,8 @@ export default function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/our-story" element={<OurStory />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </main>
       <Footer />

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const FEATURES = [
   {
@@ -81,12 +82,12 @@ export default function GlobalShippingSolutions() {
                     <p className="mt-3 text-[15px] leading-relaxed text-[#6E625A]">
                       {feature.description}
                     </p>
-                    <button
-                      type="button"
+                    <Link
+                      to="/our-story"
                       className={`mt-6 inline-block rounded-full border border-[#4A3F36] px-5 py-2.5 text-sm font-medium tracking-wide text-[#4A3F36] transition-all duration-300 hover:bg-[#4A3F36] hover:text-white ${hovered === i ? 'bg-[#4A3F36] text-white' : ''}`}
                     >
                       {feature.cta}
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

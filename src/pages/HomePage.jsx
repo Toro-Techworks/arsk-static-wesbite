@@ -17,9 +17,9 @@ export default function HomePage() {
           <h2 className="text-center font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-text-charcoal sm:text-4xl lg:text-5xl">
             Our Products
           </h2>
-          <div className="mt-12 sm:mt-16">
-            <ProductCarousel />
-          </div>
+        </div>
+        <div className="mt-12 w-full sm:mt-16">
+          <ProductCarousel />
         </div>
       </section>
       <GlobalShippingSolutions />

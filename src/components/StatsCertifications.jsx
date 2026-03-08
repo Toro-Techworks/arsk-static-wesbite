@@ -64,15 +64,15 @@ export default function StatsCertifications() {
               {STATS.map((stat) => (
                 <div
                   key={stat.value}
-                  className="rounded-xl bg-gradient-to-b from-[#2A176F] to-[#120B3F] p-4 text-center shadow-xl opacity-80 transition-transform duration-300 hover:-translate-y-[6px] sm:rounded-2xl sm:p-6 lg:p-8"
+                  className="rounded-xl bg-[#F5F1EC] p-4 text-center shadow-xl opacity-80 transition-transform duration-300 hover:-translate-y-[6px] sm:rounded-2xl sm:p-6 lg:p-8"
                 >
-                  <div className="mb-3 flex justify-center text-[#F8F4EC] sm:mb-6 [&_svg]:h-8 [&_svg]:w-8 sm:[&_svg]:h-10 sm:[&_svg]:w-10">
+                  <div className="mb-3 flex justify-center text-black sm:mb-6 [&_svg]:h-8 [&_svg]:w-8 sm:[&_svg]:h-10 sm:[&_svg]:w-10">
                     {stat.icon}
                   </div>
-                  <p className="mb-1 font-sans text-sm font-light tracking-[-0.01em] text-white sm:mb-2 sm:text-base lg:text-xl">
+                  <p className="mb-1 font-sans text-sm font-light tracking-[-0.01em] text-black sm:mb-2 sm:text-base lg:text-xl">
                     {stat.value}
                   </p>
-                  <p className="font-sans text-xs font-light leading-relaxed text-gray-300 sm:text-sm">
+                  <p className="font-sans text-xs font-light leading-relaxed text-black/80 sm:text-sm">
                     {stat.description}
                   </p>
                 </div>
