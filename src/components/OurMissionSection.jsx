@@ -12,7 +12,7 @@ const BLOCKS = [
     title: 'OUR MISSION',
     description:
       'We deliver premium textile products crafted with precision, quality materials, and skilled weaving techniques that meet global standards.',
-    bgColor: 'bg-[#8B2E2E]', // deep red / brand
+    bgColor: 'bg-[#F3DADA]', // deep red / brand
   },
   {
     type: 'image',
@@ -29,14 +29,14 @@ const BLOCKS = [
     title: 'OUR VISION',
     description:
       'Our goal is to expand globally while maintaining sustainable production practices and building long-term partnerships with international clients.',
-    bgColor: 'bg-[#C75B39]', // warm orange
+    bgColor: 'bg-[#F9E1D7]', // warm orange
   },
   {
     type: 'text',
     title: 'OUR VALUES',
     description:
       'We believe in quality craftsmanship, ethical manufacturing, sustainability, and trusted relationships with customers worldwide.',
-    bgColor: 'bg-[#2AA7A0]', // teal
+    bgColor: 'bg-[#F9E1D7]', // teal
   },
   {
     type: 'image',
@@ -48,12 +48,12 @@ const BLOCKS = [
 function TextTile({ title, description, bgColor, className = '' }) {
   return (
     <div
-      className={`flex h-full min-h-[260px] flex-col justify-center px-4 py-6 text-center sm:min-h-[320px] sm:px-8 sm:py-10 sm:text-left ${bgColor} text-white shadow-[0_8px_32px_rgba(0,0,0,0.12)] ${className}`}
+      className={`flex h-full min-h-[260px] flex-col justify-center px-4 py-6 text-center sm:min-h-[320px] sm:px-8 sm:py-10 sm:text-left ${bgColor} text-[#312E81] shadow-[0_8px_32px_rgba(0,0,0,0.12)] ${className}`}
     >
-      <h3 className="font-serif text-xl font-medium uppercase tracking-[0.12em] sm:text-2xl lg:text-3xl">
+      <h3 className="font-sans font-[200] text-xl leading-tight tracking-[-0.03em] sm:text-2xl lg:text-3xl">
         {title}
       </h3>
-      <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed opacity-95 sm:mx-0 sm:mt-4 sm:text-base">
+      <p className="mx-auto mt-3 max-w-md font-sans text-sm font-light leading-relaxed opacity-95 sm:mx-0 sm:mt-4 sm:text-base">
         {description}
       </p>
     </div>

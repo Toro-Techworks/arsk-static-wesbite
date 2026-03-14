@@ -61,8 +61,8 @@ function ProcessFlowSection() {
       {/* Overlay for readability (background image stays full) */}
       <div className="absolute inset-0 bg-[#F4EFE8]/75" aria-hidden />
 
-      <h2 className="relative z-10 text-center font-serif text-3xl font-medium tracking-[0.08em] text-[#4A3F36] md:text-4xl lg:text-[2.5rem]">
-        OUR PROCESS
+      <h2 className="relative z-10 text-center font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-[#4A3F36] sm:text-4xl lg:text-5xl">
+        Our Process
       </h2>
 
       <div className="relative z-10 mx-auto mt-14 max-w-6xl px-4 md:mt-20 md:px-6 lg:px-8">
@@ -80,7 +80,7 @@ function ProcessFlowSection() {
                 <div
                   ref={(el) => { cardRefs.current[i] = el }}
                   data-index={i}
-                  className={`group/card grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 md:items-start ${isLeft ? 'md:mr-0' : 'md:mt-12'} ${isLeft ? '' : 'lg:gap-8'}`}
+                  className={`group/card grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 md:items-stretch ${isLeft ? 'md:mr-0' : 'md:mt-12'} ${isLeft ? '' : 'lg:gap-8'}`}
                   style={{
                     opacity: isVisible(i) ? 1 : 0,
                     transform: isVisible(i) ? 'translateY(0) translateX(0)' : `translateY(40px) translateX(${isLeft ? -28 : 28}px)`,
@@ -94,23 +94,23 @@ function ProcessFlowSection() {
                         <img src={stage.image} alt={stage.title} className="aspect-[4/3] w-full object-cover object-center" />
                       </div>
                       <div
-                        className="flex min-h-[180px] flex-col justify-center rounded-2xl border border-white/30 bg-white/40 px-6 py-5 shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-xl transition-all duration-500 ease-out md:opacity-0 md:translate-x-[120%] md:group-hover/card:opacity-100 md:group-hover/card:translate-x-0"
+                        className="flex min-h-[180px] flex-col justify-center rounded-2xl border border-white/30 bg-white/40 px-6 py-5 shadow-[0_8px_32px_rgba(255,255,255,0.15),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-xl transition-all duration-500 ease-out md:aspect-[4/3] md:min-h-0 md:opacity-0 md:translate-x-[120%] md:group-hover/card:opacity-100 md:group-hover/card:translate-x-0"
                         style={{ pointerEvents: 'none' }}
                       >
-                        <p className="text-xs font-medium tracking-[0.12em] text-[#6E625A]">{stage.step}</p>
-                        <h3 className="mt-1 font-sans text-lg font-bold uppercase tracking-wide text-[#4A3F36]">{stage.title}</h3>
-                        <p className="mt-3 text-[14px] leading-relaxed text-[#6E625A]" style={{ lineHeight: 1.7 }}>{stage.description}</p>
+                        <p className="font-sans text-xs font-medium tracking-[0.12em] text-[#6E625A]">{stage.step}</p>
+                        <h3 className="mt-1 font-sans text-lg font-[200] leading-tight tracking-[-0.03em] text-[#4A3F36] sm:text-xl">{stage.title}</h3>
+                        <p className="mt-3 flex-1 overflow-y-auto font-sans text-sm font-light leading-relaxed text-[#6E625A] sm:text-[15px]" style={{ lineHeight: 1.7 }}>{stage.description}</p>
                       </div>
                     </>
                   ) : (
                     <>
                       <div
-                        className="flex min-h-[180px] flex-col justify-center rounded-2xl bg-white/40 px-6 py-5 shadow-[0_8px_32px_rgba(74,63,54,0.1)] backdrop-blur-sm transition-all duration-500 ease-out md:opacity-0 md:-translate-x-[120%] md:group-hover/card:opacity-100 md:group-hover/card:translate-x-0 order-2 md:order-1"
+                        className="flex min-h-[180px] flex-col justify-center rounded-2xl bg-white/40 px-6 py-5 shadow-[0_8px_32px_rgba(74,63,54,0.1)] backdrop-blur-sm transition-all duration-500 ease-out md:aspect-[4/3] md:min-h-0 md:opacity-0 md:-translate-x-[120%] md:group-hover/card:opacity-100 md:group-hover/card:translate-x-0 order-2 md:order-1"
                         style={{ pointerEvents: 'none' }}
                       >
-                        <p className="text-xs font-medium tracking-[0.12em] text-[#6E625A]">{stage.step}</p>
-                        <h3 className="mt-1 font-sans text-lg font-bold uppercase tracking-wide text-[#4A3F36]">{stage.title}</h3>
-                        <p className="mt-3 text-[14px] leading-relaxed text-[#6E625A]" style={{ lineHeight: 1.7 }}>{stage.description}</p>
+                        <p className="font-sans text-xs font-medium tracking-[0.12em] text-[#6E625A]">{stage.step}</p>
+                        <h3 className="mt-1 font-sans text-lg font-[200] leading-tight tracking-[-0.03em] text-[#4A3F36] sm:text-xl">{stage.title}</h3>
+                        <p className="mt-3 flex-1 overflow-y-auto font-sans text-sm font-light leading-relaxed text-[#6E625A] sm:text-[15px]" style={{ lineHeight: 1.7 }}>{stage.description}</p>
                       </div>
                       <div className="overflow-hidden rounded-2xl shadow-[0_4px_24px_rgba(74,63,54,0.08)] order-1 md:order-2">
                         <img src={stage.image} alt={stage.title} className="aspect-[4/3] w-full object-cover object-center" />
@@ -140,11 +140,11 @@ export default function OurStory() {
       className="min-h-screen w-full bg-[#EFE7DC]"
       style={{ minHeight: '100vh' }}
     >
-      <div className="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
+      <div className="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-24 pb-16 sm:pt-28 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
         {/* Left on desktop: Text */}
         <div className="flex flex-col justify-center lg:order-1">
           <h1
-            className="font-serif text-5xl font-medium leading-[1.1] tracking-tight text-[#4A3F36] sm:text-6xl lg:text-7xl xl:text-8xl"
+            className="font-sans font-[200] text-5xl leading-[1.1] tracking-[-0.03em] text-[#4A3F36] sm:text-6xl lg:text-7xl xl:text-8xl"
             style={{
               opacity: mounted ? 1 : 0,
               transform: mounted ? 'translateY(0)' : 'translateY(40px)',
@@ -156,7 +156,7 @@ export default function OurStory() {
           </h1>
 
           <p
-            className="mt-8 max-w-[500px] text-[#6E625A] leading-relaxed sm:text-lg"
+            className="mt-8 max-w-[500px] font-sans text-base font-light leading-relaxed text-[#6E625A] sm:text-lg"
             style={{
               opacity: mounted ? 1 : 0,
               transform: mounted ? 'translateY(0)' : 'translateY(40px)',
@@ -167,7 +167,7 @@ export default function OurStory() {
           </p>
 
           <p
-            className="mt-16 font-serif text-sm italic tracking-wide text-[#6E625A]"
+            className="mt-16 font-sans text-sm font-light italic tracking-wide text-[#6E625A]"
             style={{
               opacity: mounted ? 1 : 0,
               transition: 'opacity 0.6s ease 0.3s',

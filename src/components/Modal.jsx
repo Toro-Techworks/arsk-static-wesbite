@@ -28,7 +28,7 @@ export default function Modal({ isOpen, onClose, title, children }) {
       />
       <div className="relative flex max-h-[90vh] w-full max-w-3xl flex-col rounded-2xl bg-[#F4EFE8] shadow-2xl">
         <div className="flex shrink-0 items-center justify-between border-b border-[#D4CFC7] px-6 py-4 sm:px-8">
-          <h2 id="modal-title" className="font-serif text-xl font-medium text-[#4A3F36] sm:text-2xl">
+          <h2 id="modal-title" className="font-sans text-xl font-[200] tracking-[-0.03em] text-[#4A3F36] sm:text-2xl">
             {title}
           </h2>
           <button

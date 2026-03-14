@@ -32,7 +32,7 @@ export default function Hero() {
 
           {/* Subheading */}
           <p className="font-sans text-xl font-light tracking-[-0.01em] text-primary sm:text-2xl">
-            Weaving Excellence Since 1984
+            Weaving Excellence Since 1977
           </p>
 
           {/* Description */}

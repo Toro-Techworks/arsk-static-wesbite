@@ -38,11 +38,11 @@ export default function GlobalShippingSolutions() {
         <header className="mb-16 text-center lg:mb-20">
           <h2
             id="global-shipping-heading"
-            className="font-serif text-3xl font-medium tracking-tight text-[#4A3F36] sm:text-4xl lg:text-[2.5rem]"
+            className="text-center font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-text-charcoal sm:text-4xl lg:text-5xl"
           >
             Global Shipping Solutions
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-[15px] tracking-wide text-[#6E625A] sm:text-base">
+          <p className="mx-auto mt-4 max-w-xl font-sans text-[15px] tracking-wide text-[#6E625A] sm:text-base">
             Reliable international delivery for textile exports.
           </p>
         </header>
@@ -76,10 +76,10 @@ export default function GlobalShippingSolutions() {
                     onMouseEnter={() => setHovered(i)}
                     onMouseLeave={() => setHovered(null)}
                   >
-                    <h3 className="font-serif text-xl font-medium tracking-tight text-[#4A3F36] sm:text-2xl">
+                    <h3 className="font-sans font-[200] text-xl leading-tight tracking-[-0.03em] text-text-charcoal sm:text-2xl">
                       {feature.title}
                     </h3>
-                    <p className="mt-3 text-[15px] leading-relaxed text-[#6E625A]">
+                    <p className="mt-3 font-sans text-[15px] leading-relaxed text-[#6E625A]">
                       {feature.description}
                     </p>
                     <Link

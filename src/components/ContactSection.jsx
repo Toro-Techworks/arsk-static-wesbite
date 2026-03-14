@@ -12,7 +12,7 @@ const COMPANY = {
 }
 
 const inputBase =
-  'w-full border-0 border-b border-[#D4CFC7] bg-transparent py-3 text-[#4A3F36] placeholder:text-[#8E8580] focus:border-primary focus:outline-none focus:ring-0'
+  'w-full border-0 border-b border-[#D4CFC7] bg-transparent py-3 font-sans text-[#4A3F36] placeholder:text-[#8E8580] focus:border-primary focus:outline-none focus:ring-0'
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -53,11 +53,11 @@ export default function ContactSection() {
         <header className="mb-14 text-center lg:mb-20">
           <h1
             id="contact-heading"
-            className="font-serif text-3xl font-medium leading-tight tracking-tight text-[#4A3F36] sm:text-4xl lg:text-[2.75rem]"
+            className="font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-[#4A3F36] sm:text-4xl lg:text-5xl"
           >
             Our Fabric Experts Are Ready To Help
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-[15px] tracking-wide text-[#6E625A] sm:text-base">
+          <p className="mx-auto mt-4 max-w-xl font-sans text-[15px] font-light leading-relaxed text-[#6E625A] sm:text-base">
             Share your requirements and we’ll get back to you within 24 hours.
           </p>
         </header>
@@ -142,7 +142,7 @@ export default function ContactSection() {
               </div>
               <button
                 type="submit"
-                className="w-full rounded-full border-2 border-[#4A3F36] bg-[#4A3F36] py-4 text-sm font-medium uppercase tracking-wide text-white transition-all duration-300 hover:bg-transparent hover:text-[#4A3F36] focus:outline-none focus:ring-2 focus:ring-[#4A3F36] focus:ring-offset-2"
+                className="w-full rounded-full border-2 border-[#4A3F36] bg-[#4A3F36] py-4 font-sans text-sm font-medium uppercase tracking-wide text-white transition-all duration-300 hover:bg-transparent hover:text-[#4A3F36] focus:outline-none focus:ring-2 focus:ring-[#4A3F36] focus:ring-offset-2"
               >
                 Send Message
               </button>
@@ -152,10 +152,10 @@ export default function ContactSection() {
           {/* Right: Company contact info */}
           <div className="flex flex-col justify-center lg:pl-4">
             <div className="relative overflow-visible rounded-2xl bg-[#F4EFE8] p-8 pb-28 sm:p-10 sm:pb-32 lg:pb-36">
-              <h2 className="font-serif text-xl font-medium tracking-tight text-[#4A3F36] sm:text-2xl">
+              <h2 className="font-sans font-[200] text-xl leading-tight tracking-[-0.03em] text-[#4A3F36] sm:text-2xl">
                 {COMPANY.name}
               </h2>
-              <ul className="mt-8 space-y-6 text-[15px] text-[#6E625A]">
+              <ul className="mt-8 space-y-6 font-sans text-[15px] font-light leading-relaxed text-[#6E625A]">
                 <li className="flex gap-4">
                   <span className="mt-0.5 shrink-0 text-[#4A3F36]" aria-hidden>
                     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -214,12 +214,12 @@ export default function ContactSection() {
 
         {/* Find us – both maps */}
         <div className="mt-16 lg:mt-24">
-          <h2 className="mb-6 font-serif text-xl font-medium tracking-tight text-[#4A3F36] sm:text-2xl">
+          <h2 className="mb-6 font-sans font-[200] text-xl leading-tight tracking-[-0.03em] text-[#4A3F36] sm:text-2xl">
             Find us
           </h2>
           <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
             <div className="overflow-hidden rounded-2xl shadow-[0_4px_24px_rgba(74,63,54,0.08)]">
-              <p className="pt-2 pl-2 mb-2 text-sm font-medium uppercase tracking-wide text-[#6E625A]">Office & Production House</p>
+              <p className="pt-2 pl-2 mb-2 font-sans text-sm font-medium uppercase tracking-wide text-[#6E625A]">Office & Production House</p>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2235.7091729970357!2d78.07051262929768!3d10.98503173804452!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2f6f49186159%3A0x5f0637683e4af0c6!2sARSK%20EXPORTS!5e1!3m2!1sen!2sin!4v1771002246604!5m2!1sen!2sin"
                 title="ARSK Exports - Office & Production House"
@@ -233,7 +233,7 @@ export default function ContactSection() {
               />
             </div>
             <div className="overflow-hidden rounded-2xl shadow-[0_4px_24px_rgba(74,63,54,0.08)]">
-              <p className="pt-2 pl-2 mb-2 text-sm font-medium uppercase tracking-wide text-[#6E625A]">Weaving Factory</p>
+              <p className="pt-2 pl-2 mb-2 font-sans text-sm font-medium uppercase tracking-wide text-[#6E625A]">Weaving Factory</p>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d262391.4271364755!2d78.086832!3d11.016858!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2d162ad521b1%3A0xaed595e94651fe16!2sARSK%20EXPORTS%20-%20WEAVING%20FACTORY!5e1!3m2!1sen!2sin!4v1771002339117!5m2!1sen!2sin"
                 title="ARSK Exports - Weaving Factory"

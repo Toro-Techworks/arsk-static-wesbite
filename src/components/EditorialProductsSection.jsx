@@ -6,15 +6,14 @@ export default function EditorialProductsSection() {
     <section
       id="collection"
       className="w-full py-12 sm:py-20 lg:py-[120px]"
-      style={{ backgroundColor: '#eae3db' }}
+      style={{ backgroundColor: '#F4EFE8' }}
       aria-label="Product showcase"
     >
       <div className="mx-auto max-w-[1300px] px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
           <FadeInSection>
             <h2
-              className="font-serif text-2xl font-medium uppercase leading-tight tracking-[0.1em] sm:text-3xl sm:tracking-[0.12em] lg:text-[2.75rem]"
-              style={{ color: '#2e2a26' }}
+              className="font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-text-charcoal sm:text-4xl lg:text-[2.75rem]"
             >
               Create Your Dream Fabrics With Us
             </h2>
@@ -29,7 +28,7 @@ export default function EditorialProductsSection() {
           </FadeInSection>
         </div>
 
-        <LuxuryProductSection hideTitle embed />
+        <LuxuryProductSection hideTitle embed showSunrise={false} />
       </div>
     </section>
   )

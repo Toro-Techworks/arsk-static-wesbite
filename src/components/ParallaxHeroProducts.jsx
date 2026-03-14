@@ -118,10 +118,10 @@ export default function ParallaxHeroProducts({ backgroundImage = defaultBg }) {
             Curated textiles and fabrics for discerning spaces worldwide.
           </p>
           <Link
-            to="#collection"
+            to="/products#our-products"
             className="mt-8 inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-white text-white text-sm font-medium tracking-wide hover:bg-white hover:text-neutral-900 transition-all duration-300"
           >
-            Explore Collection
+            Explore collection
           </Link>
         </div>
       </div>

@@ -1,21 +1,38 @@
+import { useState, useEffect } from 'react'
 import FadeInSection from './FadeInSection'
-import ParallaxImage from './ParallaxImage'
 import cert1 from '../assets/Certificates/arsk_certification_1.jpeg'
 import cert2 from '../assets/Certificates/arsk_certification_2.avif'
 import cert3 from '../assets/Certificates/arsk_certification_3.avif'
 import cert4 from '../assets/Certificates/arsk_certification_4.png'
 
+// High-resolution previews for lightbox
+import certPreview1 from '../assets/Certificates/CERTIFICATE1.jpg'
+import certPreview2 from '../assets/Certificates/CERTIFICATE2.jpg'
+import certPreview3 from '../assets/Certificates/CERTIFICATE3.jpg'
+import certPreview4 from '../assets/Certificates/CERTIFICATE4.jpg'
+
 const CERTIFICATES = [
-  { src: cert1, alt: 'ARSK certification 1' },
-  { src: cert2, alt: 'ARSK certification 2' },
-  { src: cert3, alt: 'ARSK certification 3' },
-  { src: cert4, alt: 'ARSK certification 4' },
+  { src: cert1, preview: certPreview1, alt: 'ARSK certification 1' },
+  { src: cert2, preview: certPreview2, alt: 'ARSK certification 2' },
+  { src: cert3, preview: certPreview3, alt: 'ARSK certification 3' },
+  { src: cert4, preview: certPreview4, alt: 'ARSK certification 4' },
 ]
 
 const YOUTUBE_VIDEO_ID = 'iT58LnFxDz8'
 const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0`
 
 export default function WhoWeAre() {
+  const [activeCert, setActiveCert] = useState(null)
+
+  useEffect(() => {
+    if (!activeCert) return
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') setActiveCert(null)
+    }
+    document.addEventListener('keydown', handleEsc)
+    return () => document.removeEventListener('keydown', handleEsc)
+  }, [activeCert])
+
   return (
     <section className="flex min-h-screen w-full items-center bg-[#F3EEE6] px-4 py-16 sm:px-6 sm:py-20 lg:pt-32 lg:pb-24">
       <div className="mx-auto w-full max-w-7xl">
@@ -26,42 +43,85 @@ export default function WhoWeAre() {
             </h2>
 
             <p className="max-w-lg font-sans text-base font-light leading-relaxed tracking-[-0.01em] text-[#4B5563] sm:text-lg lg:ml-auto">
-            At ARSK EXPORTS, we combine expertise, creativity, and careful craftsmanship across our two facilities — an office and production house alongside a weaving factory. Spanning a total of 32,000 sq. feet / 3,000 sq. meters, our integrated setup allows us to oversee every step of production with precision.
+              At{' '}
+              <span style={{ fontFamily: '"Arial Rounded MT Semi-Bold", "Arial Rounded MT", Arial, sans-serif' }}>
+                ARSK EXPORTS
+              </span>
+              , we combine expertise, creativity, and careful craftsmanship across our two facilities — an office and
+              production house alongside a weaving factory. Spanning a total of 32,000 sq. feet / 3,000 sq. meters, our
+              integrated setup allows us to oversee every step of production with precision.
             </p>
           </FadeInSection>
 
           <FadeInSection className="order-2 lg:order-1">
-            <ParallaxImage className="relative aspect-video w-full overflow-hidden rounded-xl shadow-lg sm:rounded-2xl">
-              <div className="absolute inset-0 overflow-hidden rounded-xl sm:rounded-2xl">
-                <iframe
-                  src={YOUTUBE_EMBED_URL}
-                  title="ARSK Exports video"
-                  className="absolute inset-0 h-full w-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </ParallaxImage>
+            <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-lg sm:rounded-2xl">
+              <iframe
+                src={YOUTUBE_EMBED_URL}
+                title="ARSK Exports video"
+                className="absolute inset-0 h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </FadeInSection>
         </div>
 
         {/* Certifications – common below Who We Are and YouTube */}
         <div className="mt-16 overflow-hidden sm:mt-20">
-          <div className="flex flex-wrap items-center justify-center gap-14 sm:gap-20 lg:gap-28">
-            {CERTIFICATES.map((cert, index) => (
-              <img
-                key={cert.alt}
-                src={cert.src}
-                alt={cert.alt}
-                className={`shrink-0 w-auto object-contain opacity-80 transition-all duration-300 hover:scale-105 hover:opacity-100 hover:grayscale-0 
-                  ${index === 1 || index === 2 
-                    ? 'max-h-14 sm:max-h-20 lg:max-h-24' 
-                    : 'max-h-10 sm:max-h-14 lg:max-h-16'}`}
-              />
-            ))}
+          <div className="grid grid-cols-2 items-center justify-items-center gap-10 sm:flex sm:flex-wrap sm:justify-center sm:gap-20 lg:gap-28">
+            {CERTIFICATES.map((cert, index) => {
+              const isLarge = index === 1 || index === 2
+              const isLast = index === CERTIFICATES.length - 1
+              return (
+                <img
+                  key={cert.alt}
+                  src={cert.src}
+                  alt={cert.alt}
+                  onClick={() => setActiveCert(cert)}
+                  className={`shrink-0 w-auto object-contain opacity-80 transition-all duration-300 hover:scale-105 hover:opacity-100 hover:grayscale-0 
+                    ${
+                      isLast
+                        ? 'max-h-14 sm:max-h-20 lg:max-h-24'
+                        : isLarge
+                          ? 'max-h-14 sm:max-h-20 lg:max-h-24'
+                          : 'max-h-10 sm:max-h-14 lg:max-h-16'
+                    }`}
+                />
+              )
+            })}
           </div>
         </div>
       </div>
+
+      {/* Certificate preview modal */}
+      {activeCert && (
+        <div
+          className="fixed inset-0 z-[90] flex items-center justify-center bg-black/70 px-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setActiveCert(null)
+          }}
+        >
+          <div className="relative max-h-[90vh] w-full max-w-3xl overflow-hidden rounded-2xl bg-[#F3EEE6] shadow-2xl">
+            <button
+              type="button"
+              onClick={() => setActiveCert(null)}
+              className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-[#3E3A36] shadow-md transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#6b5b4d] focus:ring-offset-2 focus:ring-offset-[#F3EEE6]"
+              aria-label="Close certificate preview"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="flex max-h-[90vh] items-center justify-center bg-[#E8E4DF] p-4">
+              <img
+                src={activeCert.preview || activeCert.src}
+                alt={activeCert.alt}
+                className="max-h-[80vh] w-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

@@ -53,7 +53,7 @@ export default function StatsCertifications() {
         <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:gap-16 lg:grid-cols-2">
           <FadeInSection>
             <h2 className="font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-white sm:text-4xl lg:text-5xl">
-              Three Decades Of
+              Five Decades Of
               <br />
               <span className="font-sans font-light tracking-[-0.01em] text-[#B8A897]">Textile Excellence</span>
             </h2>

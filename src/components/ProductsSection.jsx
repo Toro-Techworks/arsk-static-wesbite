@@ -41,6 +41,7 @@ export default function ProductsSection() {
 
   return (
     <section
+      id="our-products"
       className="w-full py-20"
       style={{ backgroundColor: '#f5f1ec' }}
       aria-labelledby="products-section-title"
@@ -49,15 +50,11 @@ export default function ProductsSection() {
         <FadeInSection className="text-center">
           <h2
             id="products-section-title"
-            className="font-serif text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl"
-            style={{ color: '#2e2a26' }}
+            className="text-center font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-text-charcoal sm:text-4xl lg:text-5xl"
           >
             Our Products
           </h2>
-          <p
-            className="mt-3 font-sans text-base font-light sm:text-lg"
-            style={{ color: '#2e2a26', opacity: 0.85 }}
-          >
+          <p className="mt-3 font-sans text-base font-light text-text-charcoal/85 sm:text-lg">
             Crafted Minimal Ceramic Collection
           </p>
         </FadeInSection>

@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
             {/* Column 1 – Quick Links */}
             <div className="text-center md:text-left">
-              <h3 className="mb-6 text-sm font-semibold uppercase tracking-widest opacity-90">
+              <h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[-0.03em] opacity-90">
                 Quick Links
               </h3>
               <ul className="space-y-4">
@@ -89,8 +89,8 @@ export default function Footer() {
 
             {/* Column 2 – Social */}
             <div className="text-center md:text-left">
-              <h3 className="mb-6 text-sm font-semibold uppercase tracking-widest opacity-90">
-                Social
+<h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[-0.03em] opacity-90">
+              Social
               </h3>
               <ul className="space-y-4">
                 {socialLinks.map(({ label, href, external, icon }) => (
@@ -99,7 +99,7 @@ export default function Footer() {
                       href={href}
                       target={external ? '_blank' : undefined}
                       rel={external ? 'noopener noreferrer' : undefined}
-                      className="inline-flex items-center gap-2 text-sm tracking-wide transition-colors hover:underline"
+                      className="inline-flex items-center gap-2 font-sans text-sm font-light tracking-wide transition-colors hover:underline"
                     >
                       {icon === 'instagram' && <InstagramIcon className="h-4 w-4 shrink-0" />}
                       {icon === 'linkedin' && <LinkedInIcon className="h-4 w-4 shrink-0" />}
@@ -114,10 +114,10 @@ export default function Footer() {
 
             {/* Column 3 – Corporate Office */}
             <div className="text-center md:text-left">
-              <h3 className="mb-6 text-sm font-semibold uppercase tracking-widest opacity-90">
+              <h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[-0.03em] opacity-90">
                 ARSK Corporate Office & Production House
               </h3>
-              <address className="not-italic text-sm leading-relaxed tracking-wide">
+              <address className="not-italic font-sans text-sm font-light leading-relaxed tracking-wide">
                 No.1-A, Athur Road,<br />
                 Ottapillaiyar Kovil South, Vangapalayam,<br />
                 Karur - 639006, Tamilnadu, India
@@ -126,10 +126,10 @@ export default function Footer() {
 
             {/* Column 4 – Weaving Unit */}
             <div className="text-center md:text-left">
-              <h3 className="mb-6 text-sm font-semibold uppercase tracking-widest opacity-90">
+              <h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[-0.03em] opacity-90">
                 ARSK Exports – Weaving Unit
               </h3>
-              <address className="not-italic text-sm leading-relaxed tracking-wide">
+              <address className="not-italic font-sans text-sm font-light leading-relaxed tracking-wide">
                 No:6/6-A, Pudupalayam Village,<br />
                 Manmangalam Taluk,<br />
                 Karur - 639006, Tamilnadu, India
@@ -139,26 +139,26 @@ export default function Footer() {
 
           {/* Bottom Row */}
           <div className="mt-16 border-t border-white/20 pt-6">
-            <div className="flex flex-col items-center justify-between gap-4 text-xs opacity-80 md:flex-row">
+            <div className="flex flex-col items-center justify-between gap-4 font-sans text-xs font-light opacity-80 md:flex-row">
               <p>© ARSK Exports. All Rights Reserved</p>
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <button
                   type="button"
                   onClick={() => setPolicyModal('terms')}
-                  className="cursor-pointer border-0 bg-transparent p-0 text-inherit transition-colors hover:underline"
+                  className="cursor-pointer border-0 bg-transparent p-0 font-sans font-light text-inherit transition-colors hover:underline"
                 >
                   Terms & Conditions
                 </button>
                 <button
                   type="button"
                   onClick={() => setPolicyModal('privacy')}
-                  className="cursor-pointer border-0 bg-transparent p-0 text-inherit transition-colors hover:underline"
+                  className="cursor-pointer border-0 bg-transparent p-0 font-sans font-light text-inherit transition-colors hover:underline"
                 >
                   Privacy Policy
                 </button>
               </div>
             </div>
-            <p className="mt-4 text-center text-xs opacity-80">
+            <p className="mt-4 text-center font-sans text-xs font-light opacity-80">
               © 2026 ARSK Exports. Designed and Developed by{' '}
               <a
                 href="https://www.torotech.in/"

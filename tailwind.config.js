@@ -15,7 +15,8 @@ export default {
         'border-subtle': '#E5E0D8',
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
+        // Primary typeface across the site
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
         rounded: ['Arial Rounded MT Bold', 'Arial Rounded', 'sans-serif'],
       },
