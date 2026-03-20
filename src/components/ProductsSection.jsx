@@ -50,7 +50,7 @@ export default function ProductsSection() {
         <FadeInSection className="text-center">
           <h2
             id="products-section-title"
-            className="text-center font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-text-charcoal sm:text-4xl lg:text-5xl"
+            className="mx-auto max-w-4xl text-center font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-text-charcoal sm:text-4xl lg:text-5xl"
           >
             Our Products
           </h2>

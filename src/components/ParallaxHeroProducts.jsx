@@ -105,23 +105,23 @@ export default function ParallaxHeroProducts({ backgroundImage = defaultBg }) {
           >
             Collection
           </p>
-          <h1
-            className="font-display font-semibold text-white leading-[1.15] tracking-tight"
-            style={{
-              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Our Products
-          </h1>
+            <h1
+              className="font-display font-light text-white leading-[1.15] tracking-tight"
+              style={{
+                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Our Products
+            </h1>
           <p className="mt-5 text-base md:text-lg text-white/90 leading-relaxed max-w-md">
             Curated textiles and fabrics for discerning spaces worldwide.
           </p>
           <Link
             to="/products#our-products"
-            className="mt-8 inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-white text-white text-sm font-medium tracking-wide hover:bg-white hover:text-neutral-900 transition-all duration-300"
+            className="mt-8 inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-white text-sm font-medium tracking-wide relative overflow-hidden group before:absolute before:inset-0 before:bg-white before:scale-y-0 before:origin-bottom before:transition-transform before:duration-300 hover:before:scale-y-100"
           >
-            Explore collection
+            <span className="relative z-10 text-white group-hover:text-neutral-900 transition-colors duration-300">Explore collection</span>
           </Link>
         </div>
       </div>

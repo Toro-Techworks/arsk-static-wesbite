@@ -37,7 +37,7 @@ export default function Hero() {
 
           {/* Description */}
           <p className="text-base leading-relaxed text-text-muted sm:text-lg">
-            A trusted textile manufacturer with 40+ years of expertise in weaving
+            A trusted textile manufacturer with 50+ years of expertise in weaving
             high-quality fabrics for global markets.
           </p>
 

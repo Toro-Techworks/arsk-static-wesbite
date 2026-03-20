@@ -15,7 +15,8 @@ export default function EditorialProductsSection() {
             <h2
               className="font-sans font-[200] text-3xl leading-tight tracking-[-0.03em] text-text-charcoal sm:text-4xl lg:text-[2.75rem]"
             >
-              Create Your Dream Fabrics With Us
+              Create Your Dream <br />
+              Fabrics With Us
             </h2>
           </FadeInSection>
           <FadeInSection className="lg:pt-2">

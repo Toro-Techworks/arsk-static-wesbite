@@ -20,9 +20,9 @@ export default function ProductCard({ product, onViewDetails, className = '' }) 
         <button
           type="button"
           onClick={() => onViewDetails?.(product)}
-          className="mt-2 border border-[#3E3A36] bg-transparent px-3 py-1.5 font-sans text-[10px] uppercase tracking-[1px] text-[#3E3A36] transition-colors duration-300 ease-out hover:bg-[#3E3A36] hover:text-white sm:mt-4 sm:px-5 sm:py-2.5 sm:text-[12px]"
+          className="mt-2 border border-[#3E3A36] px-3 py-1.5 font-sans text-[10px] uppercase tracking-[1px] sm:mt-4 sm:px-5 sm:py-2.5 sm:text-[12px] relative overflow-hidden group before:absolute before:inset-0 before:bg-[#3E3A36] before:scale-y-0 before:origin-bottom before:transition-transform before:duration-300 group-hover:before:scale-y-100"
         >
-          View Details
+          <span className="relative z-10 text-[#3E3A36] group-hover:text-white transition-colors duration-300">View Details</span>
         </button>
       </div>
     </article>

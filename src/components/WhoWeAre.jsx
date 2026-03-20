@@ -6,10 +6,10 @@ import cert3 from '../assets/Certificates/arsk_certification_3.avif'
 import cert4 from '../assets/Certificates/arsk_certification_4.png'
 
 // High-resolution previews for lightbox
-import certPreview1 from '../assets/Certificates/CERTIFICATE1.jpg'
-import certPreview2 from '../assets/Certificates/CERTIFICATE2.jpg'
-import certPreview3 from '../assets/Certificates/CERTIFICATE3.jpg'
-import certPreview4 from '../assets/Certificates/CERTIFICATE4.jpg'
+import certPreview1 from '../assets/Certificates/CERTIFICATE1.png'
+import certPreview2 from '../assets/Certificates/CERTIFICATE2.png'
+import certPreview3 from '../assets/Certificates/CERTIFICATE3.png'
+import certPreview4 from '../assets/Certificates/CERTIFICATE4.png'
 
 const CERTIFICATES = [
   { src: cert1, preview: certPreview1, alt: 'ARSK certification 1' },
@@ -101,7 +101,7 @@ export default function WhoWeAre() {
             if (e.target === e.currentTarget) setActiveCert(null)
           }}
         >
-          <div className="relative max-h-[90vh] w-full max-w-3xl overflow-hidden rounded-2xl bg-[#F3EEE6] shadow-2xl">
+          <div className="relative max-h-[90vh] w-full max-w-xl overflow-hidden rounded-2xl bg-[#F3EEE6] shadow-2xl">
             <button
               type="button"
               onClick={() => setActiveCert(null)}

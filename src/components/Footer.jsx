@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
             {/* Column 1 – Quick Links */}
             <div className="text-center md:text-left">
-              <h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[-0.03em] opacity-90">
+              <h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[0.05em] opacity-90">
                 Quick Links
               </h3>
               <ul className="space-y-4">
@@ -89,7 +89,7 @@ export default function Footer() {
 
             {/* Column 2 – Social */}
             <div className="text-center md:text-left">
-<h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[-0.03em] opacity-90">
+<h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[0.1em] opacity-90">
               Social
               </h3>
               <ul className="space-y-4">
@@ -112,10 +112,10 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Column 3 – Corporate Office */}
+            {/* Column 3 – Admin Office */}
             <div className="text-center md:text-left">
-              <h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[-0.03em] opacity-90">
-                ARSK Corporate Office & Production House
+              <h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[0.05em] opacity-90">
+                ARSK Exports Admin Office & Production House
               </h3>
               <address className="not-italic font-sans text-sm font-light leading-relaxed tracking-wide">
                 No.1-A, Athur Road,<br />
@@ -126,7 +126,7 @@ export default function Footer() {
 
             {/* Column 4 – Weaving Unit */}
             <div className="text-center md:text-left">
-              <h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[-0.03em] opacity-90">
+              <h3 className="mb-6 font-sans text-sm font-[200] uppercase tracking-[0.05em] opacity-90">
                 ARSK Exports – Weaving Unit
               </h3>
               <address className="not-italic font-sans text-sm font-light leading-relaxed tracking-wide">
@@ -134,6 +134,13 @@ export default function Footer() {
                 Manmangalam Taluk,<br />
                 Karur - 639006, Tamilnadu, India
               </address>
+              <div className="mt-10">
+                <img
+                  src="/arsk_logo_white.png"
+                  alt="ARSK Exports"
+                  className="h-12 w-auto ml-10"
+                />
+              </div>
             </div>
           </div>
 

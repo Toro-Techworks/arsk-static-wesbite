@@ -84,9 +84,15 @@ export default function GlobalShippingSolutions() {
                     </p>
                     <Link
                       to="/our-story"
-                      className={`mt-6 inline-block rounded-full border border-[#4A3F36] px-5 py-2.5 text-sm font-medium tracking-wide text-[#4A3F36] transition-all duration-300 hover:bg-[#4A3F36] hover:text-white ${hovered === i ? 'bg-[#4A3F36] text-white' : ''}`}
+                      className="group mt-6 relative inline-block rounded-full border-2 border-[#2F3A8F] px-5 py-2.5 text-sm font-light text-[#2F3A8F] bg-[#F0EEE9] transition-colors duration-300 overflow-hidden"
                     >
-                      {feature.cta}
+                      <span
+                        className="absolute left-0 top-0 h-full w-0 bg-[#2F3A8F] transition-[width] duration-300 ease-out group-hover:w-full rounded-full"
+                        aria-hidden
+                      />
+                      <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                        {feature.cta}
+                      </span>
                     </Link>
                   </div>
                 </div>

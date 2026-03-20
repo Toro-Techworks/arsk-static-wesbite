@@ -28,7 +28,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTopOnNavigate />
       <Navbar />
-      <main>
+      <main className="bg-[#F0EEE9]">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />

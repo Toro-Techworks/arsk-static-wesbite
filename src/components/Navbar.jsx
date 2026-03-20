@@ -1,8 +1,5 @@
-import { useState, useEffect, useMemo, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { searchProducts } from '../data/productSearchData'
-import SearchResults from './SearchResults'
-import ProductModal from './ProductModal'
 
 const navLinks = [
   { label: 'HOME', to: '/' },
@@ -16,16 +13,6 @@ export default function Navbar() {
   const [activeLink, setActiveLink] = useState('HOME')
   const [isGlassy, setIsGlassy] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searchOpen, setSearchOpen] = useState(false)
-  const [selectedProduct, setSelectedProduct] = useState(null)
-  const searchContainerRef = useRef(null)
-  const searchContainerRefMobile = useRef(null)
-
-  const searchResults = useMemo(
-    () => searchProducts(searchQuery, 5),
-    [searchQuery]
-  )
 
   useEffect(() => {
     if (location.pathname === '/products') setActiveLink('OUR PRODUCTS')
@@ -50,8 +37,8 @@ export default function Navbar() {
     <nav
       className={`fixed left-0 right-0 top-0 z-50 h-16 w-full transition-all duration-300 sm:h-20 ${
         isGlassy
-          ? 'bg-white/95 shadow-sm backdrop-blur-md border-b border-border-subtle/50'
-          : 'bg-white'
+          ? 'bg-[#F0EEE9]/95 shadow-sm backdrop-blur-md border-b border-border-subtle/50'
+          : 'bg-[#F0EEE9]'
       }`}
     >
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6">
@@ -68,45 +55,8 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop: search + nav links */}
-        <div className="hidden flex-1 items-center justify-end gap-4 lg:flex xl:gap-6">
-          <div ref={searchContainerRef} className="relative w-full max-w-[220px] xl:max-w-[260px]">
-            <label htmlFor="navbar-search" className="sr-only">Search products</label>
-            <input
-              id="navbar-search"
-              type="search"
-              placeholder="Search products..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value)
-                setSearchOpen(true)
-              }}
-              onFocus={() => searchQuery.trim() && setSearchOpen(true)}
-              className="w-full rounded-lg border border-[#E5E0D8] bg-white py-2.5 pl-4 pr-10 font-sans text-sm text-[#2e2a26] placeholder:text-[#8E8580] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-              autoComplete="off"
-              aria-expanded={searchOpen}
-              aria-controls="navbar-search-results"
-              aria-autocomplete="list"
-            />
-            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#8E8580]" aria-hidden>
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </span>
-            <SearchResults
-              isOpen={searchOpen && searchQuery.trim().length > 0}
-              onClose={() => setSearchOpen(false)}
-              query={searchQuery}
-              results={searchResults}
-              onSelect={(product) => {
-                setSelectedProduct(product)
-                setSearchOpen(false)
-                setSearchQuery('')
-              }}
-              containerRef={searchContainerRef}
-            />
-          </div>
-          <div className="flex items-center gap-6 xl:gap-10">
+        {/* Desktop: nav links */}
+        <div className="hidden items-center justify-end gap-6 lg:flex xl:gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -127,7 +77,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          </div>
         </div>
 
         {/* Mobile menu button */}
@@ -157,40 +106,6 @@ export default function Navbar() {
         } bg-white shadow-md`}
       >
         <div className="border-t border-border-subtle/50 bg-white px-4 py-4">
-          <div ref={searchContainerRefMobile} className="relative mb-4 lg:hidden">
-            <label htmlFor="navbar-search-mobile" className="sr-only">Search products</label>
-            <input
-              id="navbar-search-mobile"
-              type="search"
-              placeholder="Search products..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value)
-                setSearchOpen(true)
-              }}
-              onFocus={() => searchQuery.trim() && setSearchOpen(true)}
-              className="w-full rounded-lg border border-[#E5E0D8] bg-white py-2.5 pl-4 pr-10 font-sans text-sm text-[#2e2a26] placeholder:text-[#8E8580] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-              autoComplete="off"
-            />
-            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#8E8580]" aria-hidden>
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </span>
-            <SearchResults
-              isOpen={searchOpen && searchQuery.trim().length > 0}
-              onClose={() => setSearchOpen(false)}
-              query={searchQuery}
-              results={searchResults}
-              onSelect={(product) => {
-                setSelectedProduct(product)
-                setSearchOpen(false)
-                setSearchQuery('')
-                closeMobileMenu()
-              }}
-              containerRef={searchContainerRefMobile}
-            />
-          </div>
           <div className="flex flex-col gap-1">
           {navLinks.map((link) => (
             <Link
@@ -213,13 +128,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-
-      <ProductModal
-        isOpen={!!selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-        product={selectedProduct}
-        onRequestQuote={() => setSelectedProduct(null)}
-      />
     </nav>
   )
 }
