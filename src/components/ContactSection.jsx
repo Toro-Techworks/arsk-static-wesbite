@@ -72,7 +72,7 @@ export default function ContactSection() {
       }}
     >
       {/* Overlay for content readability */}
-      <div className="absolute inset-0 bg-[#F8F6F2]/85" aria-hidden />
+      <div className="absolute inset-0 bg-[#F8F6F2]/70" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Large heading */}
