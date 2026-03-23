@@ -121,35 +121,35 @@ function FloatingImages() {
     () => [
       {
         src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80',
-        alt: 'Team collaborating',
+        alt: 'Creative workspace with warm tone',
+        left: '5%',
+        top: '0%',
+        width: '42%',
+        height: '140px',
       },
       {
         src: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80',
-        alt: 'Office interior',
+        alt: 'Minimal modern office interior',
+        left: '53%',
+        top: '0%',
+        width: '42%',
+        height: '140px',
       },
       {
         src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80',
-        alt: 'Coworking space',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=800&q=80',
-        alt: 'Workspace desk',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
-        alt: 'Colleagues discussion',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
-        alt: 'Creative workspace',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
-        alt: 'Team reviewing documents',
+        alt: 'Collaborative workspace ambience',
+        left: '20%',
+        top: '152px',
+        width: '60%',
+        height: '172px',
       },
       {
         src: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=80',
-        alt: 'Modern office meeting',
+        alt: 'Modern workspace detail',
+        left: '12%',
+        top: '338px',
+        width: '76%',
+        height: '128px',
       },
     ],
     []
@@ -176,14 +176,25 @@ function FloatingImages() {
         ))}
       </div>
 
-      {/* Mobile collage (fewer images) */}
-      <div className="grid grid-cols-2 gap-3 lg:hidden">
+      {/* Mobile collage (absolute floating layout) */}
+      <div className="relative mx-auto h-[482px] w-full max-w-[420px] overflow-hidden lg:hidden">
         {mobileCards.map((card) => (
           <div
             key={card.src}
-            className="overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.03]"
+            className="absolute overflow-hidden rounded-[18px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:scale-[1.03]"
+            style={{
+              left: card.left,
+              top: card.top,
+              width: card.width,
+              height: card.height,
+            }}
           >
-            <img src={card.src} alt={card.alt} className="h-full w-full object-cover" />
+            <img
+              src={card.src}
+              alt={card.alt}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
           </div>
         ))}
       </div>

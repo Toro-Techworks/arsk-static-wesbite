@@ -18,7 +18,7 @@ const CERTIFICATES = [
   { src: cert4, preview: certPreview4, alt: 'ARSK certification 4' },
 ]
 
-const YOUTUBE_VIDEO_ID = 'iT58LnFxDz8'
+const YOUTUBE_VIDEO_ID = 'dLUA61zpBb0?si=ieJ3OGqw0kbY5mMT'
 const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0`
 
 export default function WhoWeAre() {

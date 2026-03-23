@@ -22,15 +22,41 @@ export default function ContactSection() {
     subject: '',
     message: '',
   })
+  const [status, setStatus] = useState('idle')
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
+    if (status !== 'idle') setStatus('idle')
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission (e.g. API or mailto)
+    setStatus('sending')
+
+    try {
+      const res = await fetch('https://formspree.io/f/mkoqezje', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(form),
+      })
+
+      if (!res.ok) throw new Error('Formspree request failed')
+
+      setStatus('success')
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      })
+    } catch (error) {
+      setStatus('error')
+    }
   }
 
   return (
@@ -142,10 +168,21 @@ export default function ContactSection() {
               </div>
               <button
                 type="submit"
+                disabled={status === 'sending'}
                 className="w-full rounded-full border-2 border-[#4A3F36] bg-[#4A3F36] py-4 font-sans text-sm font-medium uppercase tracking-wide text-white transition-all duration-300 hover:bg-transparent hover:text-[#4A3F36] focus:outline-none focus:ring-2 focus:ring-[#4A3F36] focus:ring-offset-2"
               >
-                Send Message
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
+              {status === 'success' && (
+                <p className="pt-1 text-center font-sans text-sm font-light text-[#2F6A4A]">
+                  Message sent successfully
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="pt-1 text-center font-sans text-sm font-light text-[#9A3F3F]">
+                  Something went wrong. Try again.
+                </p>
+              )}
             </form>
           </div>
 
