@@ -13,8 +13,8 @@ import certPreview4 from '../assets/Certificates/CERTIFICATE4.png'
 
 const CERTIFICATES = [
   { src: cert1, preview: certPreview1, alt: 'ARSK certification 1' },
-  { src: cert2, preview: certPreview2, alt: 'ARSK certification 2' },
   { src: cert3, preview: certPreview3, alt: 'ARSK certification 3' },
+  { src: cert2, preview: certPreview2, alt: 'ARSK certification 2' },
   { src: cert4, preview: certPreview4, alt: 'ARSK certification 4' },
 ]
 
@@ -68,7 +68,17 @@ export default function WhoWeAre() {
 
         {/* Certifications – common below Who We Are and YouTube */}
         <div className="mt-16 overflow-hidden sm:mt-20">
-          <div className="grid grid-cols-2 items-center justify-items-center gap-10 sm:flex sm:flex-wrap sm:justify-center sm:gap-20 lg:gap-28">
+          <p
+            id="who-we-are-certificates-hint"
+            className="mb-6 text-center font-sans text-sm font-semibold leading-[1.5] tracking-heading text-[#4B5563] sm:mb-8 sm:text-base"
+          >
+            Click to view the certificates
+          </p>
+          <div
+            className="grid grid-cols-2 items-center justify-items-center gap-10 sm:flex sm:flex-wrap sm:justify-center sm:gap-20 lg:gap-28"
+            role="group"
+            aria-labelledby="who-we-are-certificates-hint"
+          >
             {CERTIFICATES.map((cert, index) => {
               const isLarge = index === 1 || index === 2
               const isLast = index === CERTIFICATES.length - 1
@@ -78,7 +88,15 @@ export default function WhoWeAre() {
                   src={cert.src}
                   alt={cert.alt}
                   onClick={() => setActiveCert(cert)}
-                  className={`shrink-0 w-auto object-contain opacity-80 transition-all duration-300 hover:scale-105 hover:opacity-100 hover:grayscale-0 
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setActiveCert(cert)
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  className={`shrink-0 w-auto cursor-pointer object-contain opacity-80 transition-all duration-300 hover:scale-105 hover:opacity-100 hover:grayscale-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#312E81] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F3EEE6] 
                     ${
                       isLast
                         ? 'max-h-14 sm:max-h-20 lg:max-h-24'

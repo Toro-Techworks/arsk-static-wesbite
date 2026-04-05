@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import chairFabric from '../assets/chair-fabric.png'
 import contactBg from '../assets/Contact-bg.jpg'
+import { LOCATION_MAPS } from '../constants/locations'
 
 const COMPANY = {
   name: 'ARSK Exports',
@@ -258,7 +259,7 @@ export default function ContactSection() {
             <div className="overflow-hidden rounded-2xl shadow-[0_4px_24px_rgba(74,63,54,0.08)]">
               <p className="pt-2 pl-2 mb-2 font-sans text-sm font-medium uppercase tracking-wide text-[#6E625A]">Office & Production House</p>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2235.7091729970357!2d78.07051262929768!3d10.98503173804452!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2f6f49186159%3A0x5f0637683e4af0c6!2sARSK%20EXPORTS!5e1!3m2!1sen!2sin!4v1771002246604!5m2!1sen!2sin"
+                src={LOCATION_MAPS.office.embedUrl}
                 title="ARSK Exports - Office & Production House"
                 width="100%"
                 height="320"
@@ -272,7 +273,7 @@ export default function ContactSection() {
             <div className="overflow-hidden rounded-2xl shadow-[0_4px_24px_rgba(74,63,54,0.08)]">
               <p className="pt-2 pl-2 mb-2 font-sans text-sm font-medium uppercase tracking-wide text-[#6E625A]">Weaving Factory</p>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d262391.4271364755!2d78.086832!3d11.016858!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2d162ad521b1%3A0xaed595e94651fe16!2sARSK%20EXPORTS%20-%20WEAVING%20FACTORY!5e1!3m2!1sen!2sin!4v1771002339117!5m2!1sen!2sin"
+                src={LOCATION_MAPS.weaving.embedUrl}
                 title="ARSK Exports - Weaving Factory"
                 width="100%"
                 height="320"

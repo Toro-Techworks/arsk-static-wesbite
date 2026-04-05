@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Modal from './Modal'
 import TermsContent from './TermsContent'
 import PrivacyContent from './PrivacyContent'
+import { LOCATION_MAPS } from '../constants/locations'
 
 const quickLinks = [
   { label: 'HOME', href: '/' },
@@ -46,6 +47,15 @@ function EnvelopeIcon({ className }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>
+  )
+}
+
+function MapPinIcon({ className }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
     </svg>
   )
 }
@@ -122,6 +132,17 @@ export default function Footer() {
                 Ottapillaiyar Kovil South, Vangapalayam,<br />
                 Karur - 639006, Tamilnadu, India
               </address>
+              <div className="mt-[10px] flex justify-center md:justify-start">
+                <a
+                  href={LOCATION_MAPS.office.viewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-white/20 px-3 py-1.5 font-sans text-sm font-light text-white transition-colors hover:border-white/40 hover:bg-white/10"
+                >
+                  <MapPinIcon className="h-4 w-4" />
+                  View on Map
+                </a>
+              </div>
             </div>
 
             {/* Column 4 – Weaving Unit */}
@@ -134,6 +155,17 @@ export default function Footer() {
                 Manmangalam Taluk,<br />
                 Karur - 639006, Tamilnadu, India
               </address>
+              <div className="mt-[10px] flex justify-center md:justify-start">
+                <a
+                  href={LOCATION_MAPS.weaving.viewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-white/20 px-3 py-1.5 font-sans text-sm font-light text-white transition-colors hover:border-white/40 hover:bg-white/10"
+                >
+                  <MapPinIcon className="h-4 w-4" />
+                  View on Map
+                </a>
+              </div>
               <div className="mt-10">
                 <img
                   src="/arsk_logo_white.png"

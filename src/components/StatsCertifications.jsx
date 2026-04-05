@@ -30,8 +30,8 @@ const STATS = [
       </svg>
     ),
     targetValue: 25,
-    suffix: 'M+ Meters',
-    description: 'Fabrics Dispatched',
+    suffix: 'M+ Products',
+    description: 'Delivered Globally',
   },
   {
     icon: (
