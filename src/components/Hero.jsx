@@ -50,31 +50,25 @@ export default function Hero() {
           {/* Buttons */}
           <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:gap-6 sm:pt-4">
             
-            <a
-              href="/products"
+            <Link
+              to="/products"
               className="group relative inline-flex justify-center overflow-hidden rounded-md border-2 border-primary px-5 py-3 text-sm font-light text-primary transition-colors duration-300 sm:px-6"
             >
-              <span
-                className="absolute left-0 top-0 h-full w-0 bg-primary transition-[width] duration-300 ease-out group-hover:w-full"
-                aria-hidden
-              />
+              <span className="absolute left-0 top-0 h-full w-0 bg-primary transition-[width] duration-300 ease-out group-hover:w-full" />
               <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                 OUR PRODUCTS
               </span>
-            </a>
-
-            <a
-              href="/contact"
+            </Link>
+          
+            <Link
+              to="/contact"
               className="group relative inline-flex justify-center overflow-hidden rounded-md border-2 border-primary px-5 py-3 text-sm font-light text-primary transition-colors duration-300 sm:px-6"
             >
-              <span
-                className="absolute left-0 top-0 h-full w-0 bg-primary transition-[width] duration-300 ease-out group-hover:w-full"
-                aria-hidden
-              />
+              <span className="absolute left-0 top-0 h-full w-0 bg-primary transition-[width] duration-300 ease-out group-hover:w-full" />
               <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                 GET IN TOUCH
               </span>
-            </a>
+            </Link>
 
           </div>
 
