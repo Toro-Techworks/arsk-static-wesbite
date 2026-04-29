@@ -32,3 +32,4 @@ jobs:
           password: Toro@2026
           local-dir: dist/
           server-dir: public_html/
+          dangerous-clean-slate: true
