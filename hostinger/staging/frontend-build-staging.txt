@@ -4,4 +4,9 @@
 # GitHub Actions env injection. If you add VITE_* later, extend deploy-staging.yaml
 # with an `env:` block on the "Build site (Vite)" step (same pattern as ARSK_Weaving_Product).
 #
+# Hostinger troubleshooting (blank page, only favicon updates):
+# - Ensure `vite.config.js` uses base: '/' so /assets/* URLs work from every route.
+# - In File Manager, remove a leftover `index.php` in public_html if Apache serves it first.
+# - Hard-refresh or purge LiteSpeed / browser cache after deploy.
+#
 # Local dev: npm run dev

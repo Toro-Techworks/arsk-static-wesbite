@@ -1,5 +1,7 @@
+# SPA must use index.html before Hostinger’s default index.php (delete stray index.php if this still fails).
+
 <IfModule mod_dir.c>
-    DirectoryIndex index.html
+    DirectoryIndex index.html index.htm
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -11,6 +13,6 @@
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
-    # React Router (SPA): fall back to index.html
+    # React Router: send non-file routes to index.html
     RewriteRule ^ index.html [L]
 </IfModule>
