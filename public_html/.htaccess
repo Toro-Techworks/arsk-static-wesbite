@@ -1,4 +1,4 @@
-# Legacy reference copy — staging deploy uses hostinger/staging/.htaccess
+# Legacy / manual copy — deploy uses hostinger/staging/.htaccess
 
 <IfModule mod_dir.c>
     DirectoryIndex index.html index.htm
@@ -8,11 +8,16 @@
     RewriteEngine On
     RewriteBase /
 
-    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^index\.php$ index.html [L]
+
+    RewriteCond %{REQUEST_URI} ^/?$
     RewriteRule ^$ index.html [L]
 
-    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
     RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !^/?$
     RewriteRule ^ - [L]
 
     RewriteRule ^ index.html [L]

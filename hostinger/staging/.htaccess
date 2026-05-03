@@ -1,4 +1,4 @@
-# SPA must use index.html before Hostinger’s default index.php (delete stray index.php if this still fails).
+# Static React SPA (Vite). LiteSpeed on Hostinger reads this like Apache mod_rewrite.
 
 <IfModule mod_dir.c>
     DirectoryIndex index.html index.htm
@@ -8,17 +8,23 @@
     RewriteEngine On
     RewriteBase /
 
-    # Root URL only: Apache treats "/" as the directory public_html; the rule below
-    # [ -f / -d ] would match that directory and stop, then DirectoryIndex may pick
-    # index.php or another default instead of this SPA's index.html. Force the shell first.
-    RewriteCond %{REQUEST_URI} ^/$
+    # Hostinger default / placeholder — serve the built SPA instead of PHP
+    RewriteRule ^index\.php$ index.html [L]
+
+    # Document root: "/" maps to this folder; [-d] shortcut must not run before we
+    # map the homepage to index.html (otherwise DirectoryIndex may pick index.php).
+    RewriteCond %{REQUEST_URI} ^/?$
     RewriteRule ^$ index.html [L]
 
-    # Serve real files and directories as-is
-    RewriteCond %{REQUEST_FILENAME} -f [OR]
-    RewriteCond %{REQUEST_FILENAME} -d
+    # Existing files (assets, favicons, manifest, etc.)
+    RewriteCond %{REQUEST_FILENAME} -f
     RewriteRule ^ - [L]
 
-    # React Router: send non-file routes to index.html
+    # Real directories only (e.g. rare static subfolders). Skip implicit "/" — handled above.
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !^/?$
+    RewriteRule ^ - [L]
+
+    # Client-side routes
     RewriteRule ^ index.html [L]
 </IfModule>

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
@@ -30,6 +30,8 @@ export default function App() {
       <Navbar />
       <main className="bg-[#F0EEE9]">
         <Routes>
+          {/* Hostinger / CDNs sometimes land on /index.html; Router path must be / for Home */}
+          <Route path="/index.html" element={<Navigate to="/" replace />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/our-story" element={<OurStory />} />
