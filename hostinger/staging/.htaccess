@@ -8,6 +8,12 @@
     RewriteEngine On
     RewriteBase /
 
+    # Root URL only: Apache treats "/" as the directory public_html; the rule below
+    # [ -f / -d ] would match that directory and stop, then DirectoryIndex may pick
+    # index.php or another default instead of this SPA's index.html. Force the shell first.
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^$ index.html [L]
+
     # Serve real files and directories as-is
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d

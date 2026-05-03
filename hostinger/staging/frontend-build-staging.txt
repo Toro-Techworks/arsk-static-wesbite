@@ -7,6 +7,8 @@
 # Hostinger troubleshooting (blank page, only favicon updates):
 # - Ensure `vite.config.js` uses base: '/' so /assets/* URLs work from every route.
 # - In File Manager, remove a leftover `index.php` in public_html if Apache serves it first.
+# - If `/contact` works but `/` does not: `.htaccess` rewrites the root to `index.html`
+#   before the directory shortcut rule — redeploy and purge cache.
 # - Hard-refresh or purge LiteSpeed / browser cache after deploy.
 #
 # Local dev: npm run dev
