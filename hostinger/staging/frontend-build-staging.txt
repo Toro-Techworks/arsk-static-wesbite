@@ -1,0 +1,7 @@
+# Staging static build (Vite at repo root)
+#
+# Current site code does not use import.meta.env.* — `npm run build` needs no
+# GitHub Actions env injection. If you add VITE_* later, extend deploy-staging.yaml
+# with an `env:` block on the "Build site (Vite)" step (same pattern as ARSK_Weaving_Product).
+#
+# Local dev: npm run dev

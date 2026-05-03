@@ -1,0 +1,45 @@
+name: Deploy ARSK static site (Staging → Hostinger)
+
+on:
+  push:
+    branches:
+      - staging
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # --- Staging artefacts (committed under hostinger/staging) ---
+
+      - name: Build site (Vite)
+        run: |
+          npm ci
+          npm run build
+
+      - name: Prepare public_html for rsync
+        run: |
+          rm -rf .ci-deploy/staging/public-html
+          mkdir -p .ci-deploy/staging/public-html
+          rsync -a dist/ .ci-deploy/staging/public-html/
+          cp hostinger/staging/.htaccess .ci-deploy/staging/public-html/.htaccess
+
+      - name: Deploy public_html (static SPA)
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avz --delete
+          path: .ci-deploy/staging/public-html/
+          remote_path: ${{ vars.STAGING_REMOTE_BASE }}public_html/
+          remote_host: ${{ secrets.HOST }}
+          remote_user: ${{ secrets.USER }}
+          remote_port: ${{ secrets.PORT }}
+          remote_key: ${{ secrets.SSH_KEY }}
